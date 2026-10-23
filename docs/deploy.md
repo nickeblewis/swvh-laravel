@@ -2,7 +2,7 @@
 
 ## Server
 
-- **Server:** a Forge app server with PHP 8.3+ (8.4 recommended), Postgres
+- **Server:** a Forge app server with PHP 8.4 or newer (the locked dependencies need it; the site's PHP version is set in Forge), Postgres
   and Node 22.
 - **Site:** a site for the domain, with the project directory left as `/public`.
 - **Database:** create a Postgres database and user in Forge, and put the
