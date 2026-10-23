@@ -1,0 +1,22 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@source '../js/**/*.vue';
+@source '../views/**/*.blade.php';
+
+/* Dark mode follows a `.dark` class on <html>, set before first paint by the
+   script in app.blade.php and flipped by the Theme button. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Home page "Groups include" links render as tags, and the two calls to action
+   beneath them as solid lozenges. Written as plain classes rather than
+   utilities so they win over the surrounding `.prose` link styles. */
+.home-chip {
+    @apply mr-2 mb-2 inline-block rounded-full border border-teal-700/30 bg-teal-700/10 px-3 py-1 text-sm font-medium text-teal-800 no-underline transition-colors hover:bg-teal-700/20 dark:border-teal-300/40 dark:bg-teal-300/10 dark:text-teal-200 dark:hover:bg-teal-300/20;
+}
+.home-pill {
+    @apply mt-2 mr-2 mb-2 inline-block rounded-full border border-teal-700 bg-teal-700 px-5 py-2.5 text-sm font-bold text-white no-underline transition-colors hover:bg-teal-800 dark:border-teal-300 dark:bg-teal-300 dark:text-teal-950 dark:hover:bg-teal-200;
+}
+.home-pill::after {
+    content: ' →';
+}
