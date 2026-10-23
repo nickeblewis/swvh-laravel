@@ -52,6 +52,13 @@ class ImportNuxt extends Command
     {
         $apply = (bool) $this->option('apply');
         $site = rtrim((string) ($this->option('site') ?? ''), '/');
+
+        if (blank(config('database.connections.nuxt.url')) && blank(config('database.connections.nuxt.database'))) {
+            $this->components->error('NUXT_DB_URL is not set. Add the Neon connection string to the environment, then run `php artisan config:clear` (a cached config ignores new variables).');
+
+            return self::FAILURE;
+        }
+
         $source = DB::connection('nuxt');
 
         $this->components->info($apply ? 'Importing from the Nuxt database.' : 'Dry run: nothing will be saved. Add --apply to import.');

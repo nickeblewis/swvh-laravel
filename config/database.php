@@ -104,6 +104,13 @@ return [
         'nuxt' => [
             'driver' => 'pgsql',
             'url' => env('NUXT_DB_URL'),
+            // Filled in from the URL. Present so a missing URL fails with a
+            // clear message from the import rather than an undefined key.
+            'host' => null,
+            'port' => '5432',
+            'database' => null,
+            'username' => null,
+            'password' => null,
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
